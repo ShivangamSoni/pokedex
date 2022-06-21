@@ -1,0 +1,10 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container > canvas {
+  background-color: var(--text-white);
+  width: 100%;
+  object-fit: contain;
+}

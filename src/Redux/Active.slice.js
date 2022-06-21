@@ -19,10 +19,7 @@ export const fetchPokemon = createAsyncThunk(
   async (nameOrNum) => {
     return axios
       .get(`https://pokeapi.co/api/v2/pokemon/${nameOrNum}`)
-      .then(async (response) => {
-        console.log(response);
-        return response.data;
-      });
+      .then(async ({ data }) => data);
   },
 );
 

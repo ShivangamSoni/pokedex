@@ -41,7 +41,7 @@ h6 {
   --text-white: #fcfcfc;
   --text-light: #ccc;
   --text-dark: #333;
-  --primary-blue: #00e5ff;
+  --primary-blue: rgb(0, 229, 255);
   --primary-violet: #b400fb;
   --primary-red: #fa3600;
 }

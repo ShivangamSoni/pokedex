@@ -8,13 +8,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 
 import PokemonDetails from "../../Components/PokemonDetails";
+import StatsRadarChart from "../../Components/StatsRadarChart";
 
 const Details = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const { loading, error, details } = useSelector((state) => state.active);
-  console.log(details);
 
   const dispatch = useDispatch();
 
@@ -51,6 +51,8 @@ const Details = () => {
             </div>
 
             <PokemonDetails details={details} />
+
+            <StatsRadarChart stats={details.stats} />
           </div>
         </>
       )}
