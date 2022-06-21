@@ -5,6 +5,9 @@ import { fetchPokemon } from "../../Redux/Active.slice";
 
 import { useParams, useNavigate } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import styles from "./styles.module.css";
 
 import PokemonDetails from "../../Components/PokemonDetails";
@@ -28,7 +31,20 @@ const Details = () => {
   }
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className={styles.container}>
+        <div className={styles.title}>
+          <Skeleton width="200px" height="50px" />
+        </div>
+
+        <div className={styles.content}>
+          <Skeleton height="100%" />
+          <Skeleton height="100%" />
+          <Skeleton height="300px" />
+          <Skeleton height="300px" />
+        </div>
+      </div>
+    );
   }
 
   return (

@@ -5,6 +5,9 @@ import { fetchPokemons } from "../../Redux/Listing.slice";
 
 import { useNavigate } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import styles from "./styles.module.css";
 
 import PokemonListCard from "../../Components/PokemonListCard";
@@ -55,17 +58,21 @@ const Listing = () => {
     return null;
   }
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
   return (
     <div className={styles.container}>
       <ol className={styles.list} ref={listRef}>
-        {results &&
+        {loading ? (
+          <>
+            {[...Array(10).keys()].map((i) => (
+              <Skeleton key={i} height="100%" />
+            ))}
+          </>
+        ) : (
+          results &&
           results.map((pokemon) => (
             <PokemonListCard key={pokemon.id} pokemon={pokemon} />
-          ))}
+          ))
+        )}
       </ol>
 
       <div className={styles.pagination}>
