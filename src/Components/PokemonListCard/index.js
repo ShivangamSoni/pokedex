@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import Tag from "../Tag";
 
 import styles from "./styles.module.css";
+
+import TagList from "../TagList";
 
 const PokemonListCard = ({ pokemon }) => {
   const {
@@ -24,11 +25,7 @@ const PokemonListCard = ({ pokemon }) => {
       <div className={styles.details}>
         <h3>{name}</h3>
 
-        <ul className={styles.tags}>
-          {types.map(({ type: { name } }, idx) => (
-            <Tag key={idx}>{name}</Tag>
-          ))}
-        </ul>
+        <TagList list={types.map(({ type: { name } }) => name)} />
 
         <Link to={`/${id}`}>See Details</Link>
       </div>

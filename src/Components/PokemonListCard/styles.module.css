@@ -68,18 +68,6 @@
   text-transform: capitalize;
 }
 
-.details > .tags {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-}
-
 .details > a {
   outline: none;
   text-decoration: none;

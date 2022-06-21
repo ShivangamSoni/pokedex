@@ -1,0 +1,20 @@
+.common {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.details {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+
+.details > h3 {
+  text-decoration: 2px solid underline currentColor;
+  font-weight: 500;
+}
+
+.moves {
+  grid-column: 1/-1;
+}

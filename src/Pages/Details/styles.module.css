@@ -1,0 +1,44 @@
+.container {
+  color: var(--text-white);
+  padding: 10px 10px 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.title > h2 {
+  text-transform: capitalize;
+  background-color: var(--primary-violet);
+  padding: 0.3em 1em;
+}
+
+.title span {
+  color: var(--text-light);
+  opacity: 0.8;
+  font-size: 0.8em;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: 300px;
+  gap: 20px;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-red);
+  overflow: hidden;
+  padding: 5px;
+}
+
+.image > img {
+  height: 100%;
+  object-fit: contain;
+}

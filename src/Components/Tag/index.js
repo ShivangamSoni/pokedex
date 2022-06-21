@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 
-const TAG_COLORS = {
+// Colors Corresponding to Pokemon Type
+const PRIMARY_TAG_COLORS = {
   normal: "#A8A878",
   fire: "#F08030",
   water: "#6890F0",
@@ -21,14 +22,26 @@ const TAG_COLORS = {
   fairy: "#F0B6BC",
 };
 
+// Random Colors to use for Abilities & Moves
+const SECONDARY_TAG_COLORS = [
+  "#8338ec",
+  "#3a86ff",
+  "#fb5607",
+  "#023e8a",
+  "#ff006e",
+  "#ee6c4d",
+  "#231942",
+  "#5e548e",
+  "#76c893",
+  "#168aad",
+];
+
 const getColor = (key) => {
-  let color = TAG_COLORS[key];
+  let color = PRIMARY_TAG_COLORS[key];
 
   if (!color) {
-    const AllColors = Object.values(TAG_COLORS);
-    const idx = Math.floor(Math.random() * AllColors.length);
-
-    color = AllColors[idx];
+    const idx = Math.floor(Math.random() * SECONDARY_TAG_COLORS.length);
+    color = SECONDARY_TAG_COLORS[idx];
   }
 
   return color;
