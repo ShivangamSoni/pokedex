@@ -50,9 +50,9 @@ const ListingSlice = createSlice({
       state.list = payload;
       state.error = "";
     });
-    builder.addCase(fetchPokemons.rejected, (state, { payload }) => {
+    builder.addCase(fetchPokemons.rejected, (state, { error }) => {
       state.loading = false;
-      state.error = payload;
+      state.error = error.message;
     });
   },
 });

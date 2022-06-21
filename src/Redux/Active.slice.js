@@ -39,9 +39,9 @@ const ActiveSlice = createSlice({
       state.details = payload;
       state.error = "";
     });
-    builder.addCase(fetchPokemon.rejected, (state, { payload }) => {
+    builder.addCase(fetchPokemon.rejected, (state, { error }) => {
       state.loading = false;
-      state.error = payload;
+      state.error = error.message;
     });
   },
 });

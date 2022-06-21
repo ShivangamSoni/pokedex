@@ -24,10 +24,11 @@ const Details = () => {
 
   if (error) {
     navigate("/404");
+    return null;
   }
 
   if (loading) {
-    <p>Loading...</p>;
+    return <p>Loading...</p>;
   }
 
   return (
