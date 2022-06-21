@@ -1,6 +1,12 @@
 import { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
+import styles from "./styles.module.css";
+
 const SearchBar = () => {
+  const navigate = useNavigate();
+
   const [searchText, setSearchText] = useState("");
 
   const handleChange = (e) => {
@@ -9,12 +15,20 @@ const SearchBar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const searchTerm = searchText
+      .toLowerCase()
+      .replace(/[^a-zA-Z0-9 ]/g, "")
+      .split(" ")
+      .filter((s) => s)
+      .join("-");
+    navigate(`/${searchTerm}`);
+    setSearchText("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name or Pokédex Number</label>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.formControl}>
         <input
           type="search"
           name="search"
@@ -23,6 +37,7 @@ const SearchBar = () => {
           onChange={handleChange}
           required
         />
+        <label>Name or Pokédex Number</label>
       </div>
     </form>
   );

@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemons } from "../../Redux/Listing.slice";
 
 import { useNavigate } from "react-router-dom";
+
+import styles from "./styles.module.css";
 
 import PokemonListCard from "../../Components/PokemonListCard";
 
@@ -19,9 +21,34 @@ const Listing = () => {
     return state.listing;
   });
 
+  const listRef = useRef(null);
+
+  const changePage = (pageLink) => dispatch(fetchPokemons(pageLink));
+
+  const nextPage = (e) => {
+    if (e.target.disabled) {
+      return;
+    }
+    changePage(next);
+  };
+
+  const prevPage = (e) => {
+    if (e.target.disabled) {
+      return;
+    }
+    changePage(previous);
+  };
+
   useEffect(() => {
     dispatch(fetchPokemons("https://pokeapi.co/api/v2/pokemon/"));
   }, [dispatch]);
+
+  useEffect(() => {
+    listRef.current.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [results]);
 
   if (error) {
     navigate("/404");
@@ -32,18 +59,21 @@ const Listing = () => {
   }
 
   return (
-    <div>
-      <ol>
+    <div className={styles.container}>
+      <ol className={styles.list} ref={listRef}>
         {results &&
           results.map((pokemon) => (
             <PokemonListCard key={pokemon.id} pokemon={pokemon} />
           ))}
       </ol>
 
-      <div>
-        <button onClick={() => dispatch(fetchPokemons(next))}>Next</button>
-        <button onClick={() => dispatch(fetchPokemons(previous))}>
+      <div className={styles.pagination}>
+        <button className={styles.btn} onClick={prevPage} disabled={!previous}>
           Previous
+        </button>
+
+        <button className={styles.btn} onClick={nextPage} disabled={!next}>
+          Next
         </button>
       </div>
     </div>

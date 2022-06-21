@@ -1,14 +1,68 @@
+/* Global Stylings & Resets */
 *,
 *::after,
 *::before {
   box-sizing: border-box;
+  /*  For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-light) var(--text-dark);
+  scroll-behavior: smooth;
+}
+
+/* Scroll Bar Style For Chromium Based Browsers */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 20px;
+  outline: 1px solid black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* Site Level Variables */
+:root {
+  --bg-dark: #1e1e1e;
+  --bg-light: #29303f;
+  --text-white: #fcfcfc;
+  --text-light: #ccc;
+  --text-dark: #333;
+  --primary-blue: #00e5ff;
+  --primary-violet: #b400fb;
+  --primary-red: #fa3600;
 }
 
 html,
-body {
+body,
+#root {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-light);
+  color: var(--text);
+  height: 100vh;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  width: MIN(1200px, 96%);
+  margin: 0 auto;
 }

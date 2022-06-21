@@ -1,0 +1,53 @@
+.form {
+  width: min(500px, 100%);
+}
+
+.formControl {
+  position: relative;
+}
+
+.formControl > label {
+  font-size: 0.8rem;
+  position: absolute;
+  top: 50%;
+  left: 0.7rem;
+  padding: 0 0.5rem 0 0.3rem;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  background-color: #fff;
+  pointer-events: none;
+  transition: all 300ms linear;
+}
+
+.formControl > input {
+  appearance: none;
+  outline: none;
+  border: 2px solid var(--text-light);
+  border-radius: 100vmax;
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  background-color: #fff;
+  transition: all 300ms linear;
+}
+
+.formControl > input::placeholder {
+  color: transparent;
+}
+
+.formControl > input:focus-visible {
+  border-color: var(--primary-blue);
+}
+
+.formControl > input:focus-visible + label,
+.formControl > input:not(:placeholder-shown) + label {
+  font-size: 0.85rem;
+  top: 0%;
+  transform: translateY(-50%);
+  padding: 0 0.5rem 0 0.3rem;
+}
+
+.formControl > input:focus-visible + label {
+  color: var(--text-dark);
+}
