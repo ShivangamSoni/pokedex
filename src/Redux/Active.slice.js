@@ -9,6 +9,7 @@ const initialState = {
  * Slice for Active Pokemons' details
  */
 const ActiveSlice = createSlice({
+  name: "active",
   initialState,
   reducers: {},
 });

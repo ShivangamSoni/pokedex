@@ -1,5 +1,5 @@
-const PokemonListCard = () => {
-  return <li>Its a Pokemon</li>;
+const PokemonListCard = ({ pokemon: { id, name } }) => {
+  return <li></li>;
 };
 
 export default PokemonListCard;
