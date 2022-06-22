@@ -1,11 +1,14 @@
 .header {
+  padding: 20px 15px;
+  background-color: var(--bg-dark);
+}
+
+.container {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  padding: 20px 15px;
-  background-color: var(--bg-dark);
 }
 
 .brand {

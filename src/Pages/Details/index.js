@@ -32,7 +32,7 @@ const Details = () => {
 
   if (loading) {
     return (
-      <div className={styles.container}>
+      <main className={`${styles.container} set-width`}>
         <div className={styles.title}>
           <Skeleton width="200px" height="50px" />
         </div>
@@ -43,12 +43,12 @@ const Details = () => {
           <Skeleton height="300px" />
           <Skeleton height="300px" />
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className={styles.container}>
+    <main className={`${styles.container} set-width`}>
       {details && (
         <>
           <div className={styles.title}>
@@ -73,7 +73,7 @@ const Details = () => {
           </div>
         </>
       )}
-    </div>
+    </main>
   );
 };
 

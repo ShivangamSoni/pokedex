@@ -59,7 +59,7 @@ const Listing = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} set-width`}>
       <ol className={styles.list} ref={listRef}>
         {loading ? (
           <>

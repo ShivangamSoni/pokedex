@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
 
 import Header from "./Components/Header";
 import NotFound from "./Pages/404";
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/:id" element={<Details />} />
         <Route path="/404" element={<NotFound />} />
       </Routes>
+
+      <Footer />
     </>
   );
 };

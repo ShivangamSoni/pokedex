@@ -61,8 +61,11 @@ body,
 
 #root {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
+}
+
+.set-width {
   width: MIN(1200px, 96%);
   margin: 0 auto;
 }
