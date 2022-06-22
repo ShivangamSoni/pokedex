@@ -2,6 +2,8 @@
 
 A Pokédex created using React.
 
+[Checkout Live](https://shivi-pokedex.netlify.app/)
+
 API Used: https://pokeapi.co/
 
 Packages Used:
